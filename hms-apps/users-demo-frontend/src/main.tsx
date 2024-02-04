@@ -11,11 +11,10 @@ import Loading from './global/Loading.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <Suspense loading={<Loading />}>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-    </Suspense>
+    {/* </Suspense> */}
   </React.StrictMode>,
 )
 

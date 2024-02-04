@@ -18,7 +18,7 @@
     "hms:start:all": "pm2 start hms-apps/identity/dist/main.js -i 4 --name identity && pm2 start hms-apps/api-gateway/dist/src/main.js -i 4 --name api-gateway",
     "hms:stop:all": "pm2 stop api-gateway && pm2 stop identity",
     "hms:preview": "turbo run hms:preview",
-    "hms:gen:identity.ts:from:proto": "../protoc-25.2-win64/bin/protoc --plugin=../node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=./ --ts_proto_opt=nestJs=true ./proto/identity.proto"
+    "hms:gen:identity.ts:from:proto": "./protoc-25.2-win64/bin/protoc --plugin=./node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=./ --ts_proto_opt=nestJs=true ./hms-apps/proto/identity.proto"
   },
   "author": "Yoma Ata",
   "license": "MIT",

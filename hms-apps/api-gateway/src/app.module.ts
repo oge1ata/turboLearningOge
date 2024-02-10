@@ -10,13 +10,21 @@ import { UsersModule } from './users/users.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 
-
 @Module({
-  imports: [EmployeesModule, PatientsModule, ClinicsModule, PharmaciesModule, AuthModule, UsersModule, ServeStaticModule.forRoot({
-  rootPath: join(__dirname, '../../..', 'users-demo-frontend', 'dist')
-}),],
+  imports: [
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '../../../..', 'users-demo-frontend', 'dist'),
+      exclude: ['/api*'],
+    }),
+    // TypeOrmModule.forRoot(typeOrmConfig),
+    EmployeesModule,
+    PatientsModule,
+    ClinicsModule,
+    PharmaciesModule,
+    AuthModule,
+    UsersModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
-  
 })
 export class AppModule {}
